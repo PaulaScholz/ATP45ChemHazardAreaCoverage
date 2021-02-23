@@ -182,10 +182,13 @@ namespace AdvancedATP45.ChemHazard
         /// <summary>
         /// Computes the downwind distance X for a dosage threshold with tolerance.
         /// </summary>
-        /// <param name="endPointThreshold">Dosage in mg.min/m^3</param>
+        /// <param name="qKg">Fill weight in kilograms</param>
+        /// <param name="uKts">Windspeed in knots</param>
+        /// <param name="endPointThreshold">Dosage of interest in mg.min/m^3</param>
         /// <param name="tolerance">Tolerance for bisection in mg.min/m^3</param>
-        /// <param name="crosswind">True if for crosswind distance Y calculation, X otherwise</param>
-        /// <returns></returns>
+        /// <param name="tst">Target Surface Type, Land or Sea</param>
+        /// <param name="psc">Pasquill Stability Category</param>
+        /// <returns>DosageValue object</returns>
         public DosageValue FindXLimitForDosage(double qKg, double uKts, double endPointThreshold, double tolerance,
                                                             TargetSurfaceType tst, PasquillStabilityCategory psc)
         {
@@ -275,10 +278,14 @@ namespace AdvancedATP45.ChemHazard
         /// <summary>
         /// Computes the crosswind distance Y for a dosage threshold with tolerance.
         /// </summary>
-        /// <param name="endPointThreshold">Dosage in mg.min/m^3</param>
+        /// <param name="xDistance">Downwind distance of interest</param>
+        /// <param name="qKg">Fill weight in kilograms</param>
+        /// <param name="uKts">Windspeed in knots</param>
+        /// <param name="endPointThreshold">Dosage of interest in mg.min/m^3</param>
         /// <param name="tolerance">Tolerance for bisection in mg.min/m^3</param>
-        /// <param name="crosswind">True if for crosswind distance Y calculation, X otherwise</param>
-        /// <returns></returns>
+        /// <param name="tst">Target Surface Type, Land or Sea</param>
+        /// <param name="psc">Pasquill Stability Category</param>
+        /// <returns>DosageValue object</returns>
         public DosageValue FindYLimitForDosage(double xDistance, double qKg, double uKts, double endPointThreshold, double tolerance,
                                                             TargetSurfaceType tst, PasquillStabilityCategory psc)
         {
@@ -434,7 +441,7 @@ namespace AdvancedATP45.ChemHazard
         /// <param name="qKg">Source Strength of release in kilograms.</param>
         /// <param name="ts">Target surface type, Land or Sea</param>
         /// <param name="s">Pasquill stability category</param>
-        /// <returns></returns>
+        /// <returns>Total Dosage value at x,y</returns>
         public static double TotalDosage(double x, double y, double uKts, double qKg, TargetSurfaceType ts, PasquillStabilityCategory s)
         {
             double windSpeedMetersPerSecond = uKts * KtsToMetersPerSecondFactor;
