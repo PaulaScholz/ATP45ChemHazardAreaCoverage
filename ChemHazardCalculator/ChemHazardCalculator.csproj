@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    <PackageId>ChemHazardCalculator</PackageId>
+    <Authors>Paula Scholz</Authors>
+    <Company>Flashcast Software Engineering</Company>
+    <Description>Calculates the area coverage of an instantaneous chemical point source and produces downwind and crosswind field coordinates for three dosage contours of interest. 
+
+Fill in the parameters and press Calculate. Then, use the File/Save menu option to save the resulting dosage fields on disk in XML format.</Description>
+    <Copyright>Copyright © 2021 by Paula Scholz</Copyright>
+    <PackageProjectUrl>https://www.flashcast.dev</PackageProjectUrl>
+    <Platforms>AnyCPU;x86</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DosageCalculations\DosageCalculations.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
