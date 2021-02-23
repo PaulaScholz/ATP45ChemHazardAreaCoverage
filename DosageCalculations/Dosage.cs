@@ -201,6 +201,9 @@ namespace AdvancedATP45.ChemHazard
 
             DosageValue retVal = new DosageValue();
 
+            // initialX and initialY are .Net Tuple types
+            // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples
+
             // set the initial guess at 1 meter
             var initialX = (distance: 1.0, dosage: 0.0);
 
@@ -290,6 +293,9 @@ namespace AdvancedATP45.ChemHazard
             _toleranceUpperLimit = endPointThreshold + tolerance;
 
             DosageValue retVal = new DosageValue();
+
+            // initialX and initialY are .Net Tuple types
+            // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples
 
             // set the initial Y at 1 meter
             var initialY = (distance: 1.0, dosage: 0.0);
