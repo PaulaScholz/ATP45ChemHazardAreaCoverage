@@ -80,16 +80,27 @@ namespace AdvancedATP45.ChemHazard
         private double _toleranceLowerLimit;
         private double _toleranceUpperLimit;
 
-
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public TotalDosagePattern()
         {
             WeaponName = "auto";
             Psc = PasquillStabilityCategory.Neutral;
             Tst = TargetSurfaceType.Land;
-            Tolerance = .02;
+            Tolerance = .02;        // .02 mg.min/m3
             Patterns = new List<DosageField>();
         }
 
+        /// <summary>
+        /// Constructor with all parameters.
+        /// </summary>
+        /// <param name="wpnName">Weapon Name</param>
+        /// <param name="agentName">Agent Name</param>
+        /// <param name="qkg">Fill weight in kilograms</param>
+        /// <param name="ukts">Windspeed in knots</param>
+        /// <param name="psc">Pasquill Stability Category</param>
+        /// <param name="tst">Target Surface Type</param>
         public TotalDosagePattern(string wpnName, string agentName, double qkg, double ukts, PasquillStabilityCategory psc, TargetSurfaceType tst)
         {
             WeaponName = wpnName;
@@ -190,9 +201,6 @@ namespace AdvancedATP45.ChemHazard
 
             DosageValue retVal = new DosageValue();
 
-            // initial guess for Xlimit is # kilograms fill * 50 meters
-            //var initialX= (distance: qKg * 50, dosage: 0.0);
-
             // set the initial guess at 1 meter
             var initialX = (distance: 1.0, dosage: 0.0);
 
@@ -282,9 +290,6 @@ namespace AdvancedATP45.ChemHazard
             _toleranceUpperLimit = endPointThreshold + tolerance;
 
             DosageValue retVal = new DosageValue();
-
-            // initial guess for Xlimit is # kilograms fill * 10 meters
-            //var initialY = (distance: qKg * 10, dosage: 0.0);
 
             // set the initial Y at 1 meter
             var initialY = (distance: 1.0, dosage: 0.0);
