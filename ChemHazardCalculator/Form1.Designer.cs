@@ -39,16 +39,16 @@ namespace ChemHazardCalculator
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MphKphLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -123,9 +123,6 @@ namespace ChemHazardCalculator
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
             this.toolStripSeparator1,
-            //this.printToolStripMenuItem,
-            //this.printPreviewToolStripMenuItem,
-            //this.toolStripSeparator2,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
@@ -140,6 +137,7 @@ namespace ChemHazardCalculator
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.newToolStripMenuItem.Size = new System.Drawing.Size(223, 34);
             this.newToolStripMenuItem.Text = "&New";
+            this.newToolStripMenuItem.Click += ClearButton_Click;
             // 
             // openToolStripMenuItem
             // 
@@ -178,28 +176,6 @@ namespace ChemHazardCalculator
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(220, 6);
             // 
-            // printToolStripMenuItem
-            // 
-            //this.printToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripMenuItem.Image")));
-            //this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            //this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            //this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            //this.printToolStripMenuItem.Size = new System.Drawing.Size(223, 34);
-            //this.printToolStripMenuItem.Text = "&Print";
-            //// 
-            //// printPreviewToolStripMenuItem
-            //// 
-            //this.printPreviewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printPreviewToolStripMenuItem.Image")));
-            //this.printPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            //this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
-            //this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(223, 34);
-            //this.printPreviewToolStripMenuItem.Text = "Print Pre&view";
-            //// 
-            //// toolStripSeparator2
-            //// 
-            //this.toolStripSeparator2.Name = "toolStripSeparator2";
-            //this.toolStripSeparator2.Size = new System.Drawing.Size(220, 6);
-            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
@@ -209,44 +185,52 @@ namespace ChemHazardCalculator
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            //this.contentsToolStripMenuItem,
-            //this.indexToolStripMenuItem,
-            //this.searchToolStripMenuItem,
-            //this.toolStripSeparator5,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(65, 29);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
-            // contentsToolStripMenuItem
-            // 
-            //this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            //this.contentsToolStripMenuItem.Size = new System.Drawing.Size(185, 34);
-            //this.contentsToolStripMenuItem.Text = "&Contents";
-            //// 
-            //// indexToolStripMenuItem
-            //// 
-            //this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            //this.indexToolStripMenuItem.Size = new System.Drawing.Size(185, 34);
-            //this.indexToolStripMenuItem.Text = "&Index";
-            //// 
-            //// searchToolStripMenuItem
-            //// 
-            //this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            //this.searchToolStripMenuItem.Size = new System.Drawing.Size(185, 34);
-            //this.searchToolStripMenuItem.Text = "&Search";
-            //// 
-            //// toolStripSeparator5
-            //// 
-            //this.toolStripSeparator5.Name = "toolStripSeparator5";
-            //this.toolStripSeparator5.Size = new System.Drawing.Size(182, 6);
-            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(185, 34);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(176, 34);
             this.aboutToolStripMenuItem.Text = "&About...";
             this.aboutToolStripMenuItem.Click += AboutToolStripMenuItem_Click;
+            // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // printPreviewToolStripMenuItem
+            // 
+            this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
+            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 6);
+            // 
+            // contentsToolStripMenuItem
+            // 
+            this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // indexToolStripMenuItem
+            // 
+            this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // searchToolStripMenuItem
+            // 
+            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 6);
             // 
             // groupBox1
             // 
@@ -571,17 +555,16 @@ namespace ChemHazardCalculator
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1091);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 1101);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1299, 32);
+            this.statusStrip1.Size = new System.Drawing.Size(1299, 22);
             this.statusStrip1.TabIndex = 15;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(179, 25);
-            this.toolStripStatusLabel1.Text = "";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 15);
             // 
             // Form1
             // 
@@ -597,6 +580,7 @@ namespace ChemHazardCalculator
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";

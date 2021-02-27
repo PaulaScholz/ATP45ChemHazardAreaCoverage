@@ -15,7 +15,18 @@ Fill in the parameters and press Calculate. Then, use the File/Save menu option 
     <Copyright>Copyright © 2021 by Paula Scholz</Copyright>
     <PackageProjectUrl>https://www.flashcast.dev</PackageProjectUrl>
     <Platforms>AnyCPU;x86</Platforms>
+    <ApplicationIcon>chem_256x256.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="chem_256x256.ico" />
+    <None Remove="Resources\chem_256x256.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="chem_256x256.ico" />
+    <Content Include="Resources\chem_256x256.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DosageCalculations\DosageCalculations.csproj" />

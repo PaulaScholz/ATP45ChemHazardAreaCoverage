@@ -19,6 +19,12 @@
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_B8B7166694454CF69E3348A89AD31DB4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -37,6 +43,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -110,6 +132,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B8B7166694454CF69E3348A89AD31DB4"
+            {
+            "SourcePath" = "8:..\\ChemHazardCalculator\\Resources\\chem_256x256.ico"
+            "TargetName" = "8:chem_256x256.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_C9C3D2007A1E488BA147DD7CCC686FF6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -167,7 +209,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:ChemHazardCalculator"
         "ProductCode" = "8:{8E25251C-EEAB-4F7A-BA9E-0B0B2D106BF8}"
-        "PackageCode" = "8:{199BB5B2-2617-42F5-918E-538E5A179AD6}"
+        "PackageCode" = "8:{03766196-895B-4466-95CD-DE44D240D4A3}"
         "UpgradeCode" = "8:{808ACFF4-A457-47BD-B00F-C8A9B35BA752}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -298,7 +340,7 @@
             "Target" = "8:_2B1E31C36138458988073E8FE2C5E2B2"
             "Folder" = "8:_B4FA47B6871E4A7B9141938816C5B56B"
             "WorkingFolder" = "8:_C9C3D2007A1E488BA147DD7CCC686FF6"
-            "Icon" = "8:"
+            "Icon" = "8:_B8B7166694454CF69E3348A89AD31DB4"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_FB220DC4ABA54DA2AA78F73414637C44"
@@ -312,7 +354,7 @@
             "Target" = "8:_2B1E31C36138458988073E8FE2C5E2B2"
             "Folder" = "8:_FF9C83F5CAE94B85AA37299CB163BBCA"
             "WorkingFolder" = "8:_C9C3D2007A1E488BA147DD7CCC686FF6"
-            "Icon" = "8:"
+            "Icon" = "8:_B8B7166694454CF69E3348A89AD31DB4"
             "Feature" = "8:"
             }
         }
