@@ -38,7 +38,7 @@ Toxicity levels for this application are measured in mg-min/m^3, but in the case
 
 Let's do an example run.  We'll use a notional dummy chemical agent called **Trumpathion** to illustrate the software's features.  Consider the inputs below:
 
-![Trumpathion Dumpster Fire ATP-45 Run](Readmeimages/DumpsterFire.PNG)
+![Trumpathion Dumpster Fire ATP-45 Run](ReadmeImages/DumpsterFire.PNG)
 *ATP45 Chemical Area Coverage Calculator after run*
 
 Note that we've chosen a fill weight of 10kg, with Threshold, ICT50, and LCT50 dosages of 10, 50, and 500 mg-min/m^3, Stable atmospheric conditions on Land, with a windspeed of 3 knots.  When we enter the inputs, the Calculate button will be enabled and when pressed, the results will appear in the text box below.  For this notional sample run, the output is:
