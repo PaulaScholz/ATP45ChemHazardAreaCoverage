@@ -21,4 +21,127 @@ We have three main environmental inputs. The first of these is the **Atmospheric
 
 The second input is the **Target Surface Type**, Land or Sea, at the place of release.  Selection of this input affects velocity of agent depostion and other internal model parameters.
 
-The third input is the **Windspeed** at the time and place of release, in nautical miles per hour.  This value is entered using the NumericUpDown box, either by clicking on the up/down arrows or by entering a value in the box.  When a value is entered, it is converted to miles per hour, kilometers per hour, or meters per second and displayed below the input box.
+The third input is the **Windspeed** at the time and place of release, in nautical miles per hour.  This value is entered using the NumericUpDown box, either by clicking on the up/down arrows or by entering a value in the box.  When a value is entered, it is converted to miles per hour, kilometers per hour, and meters per second and displayed below the input box.
+
+## Model Inputs - Source Parmeters
+Source parmeters include the weapon or device name, the agent name, the agent fill weight of the munition or device in kilograms, and total dosage values in mg.min/m^3 for three toxicity levels of interest.
+
+Typical dosage levels of interest are:
+
+ * *Threshold*, where a normal person might first feel detectable effects of the agent;
+ * *ICT50*, or Incapacitating Dosage, where 50% of exposed personnel will be rendered ineffective after 2 minutes of exposure; 
+ * *LCT50*, or Lethal Dosage, where 50% of exposed personnel will die after two minutes of exposure at this level.
+
+ Really, these levels can represent whatever your criteria of interest happen to be, with the limitation that the Threshold dose be less than ICT50, which must be less than LCT50, and all must be greater than zero.
+
+Toxicity levels for this application are measured in mg-min/m^3, but in the case of many industrial chemicals, toxicity levels of interest are only available in Parts Per Million form (PPM).  The National Institute for Occupational Safety and Health has built a [conversion calculator](https://www.cdc.gov/niosh/docs/2004-101/calc.html) to convert PPM measurements to mg-min/m^3 and vise-versa. 
+
+Let's do an example run.  We'll use a notional dummy chemical agent called **Trumpathion** to illustrate the software's features.  Consider the inputs below:
+
+![Trumpathion Dumpster Fire ATP-45 Run](Readmeimages/DumpsterFire.PNG)
+*ATP45 Chemical Area Coverage Calculator after run*
+
+Note that we've chosen a fill weight of 10kg, with Threshold, ICT50, and LCT50 dosages of 10, 50, and 500 mg-min/m^3, Stable atmospheric conditions on Land, with a windspeed of 3 knots.  When we enter the inputs, the Calculate button will be enabled and when pressed, the results will appear in the text box below.  For this notional sample run, the output is:
+
+```
+Total Dosage Patterns for Dumpster Fire
+Filled with 10 kilograms of Trumpathion, explosive release
+Atmospheric stability of Stable
+Target Surface Type is Land
+Windspeed is 3.0 knots
+
+For Dosage 10 mg.min/m^3
+Maximum Downwind Distance is 724.00 meters
+Maximum Crosswind Distance is 133.25 meters
+Area Coverage is 149920.04 square meters
+
+For Dosage 50 mg.min/m^3
+Maximum Downwind Distance is 200.69 meters
+Maximum Crosswind Distance is 53.53 meters
+Area Coverage is 16753.85 square meters
+
+For Dosage 500 mg.min/m^3
+Maximum Downwind Distance is 27.74 meters
+Maximum Crosswind Distance is 13.84 meters
+Area Coverage is 602.17 square meters
+```
+This data alone is sufficient for many types of analyses, but we might want the shape of the patterns for plotting on a map.  The ATP45 Chemical Area Coverage Calculator will save the results as XML, including the patterns, through the File|Save menu.  Once a run has been made, select File|Save and enter a filename for your data.
+
+![Trumpathion Sample Run](ReadmeImages/DumpsterFireSave.PNG)
+*Results - File Save Dialog*
+
+Let's take a look at the XML from the above sample run.  In the next listing, we've collapsed the Calculated Pattern DosageField nodes to show you just the inputs for the run.
+```xml
+<ChemHazardViewModel xmlns="http://schemas.datacontract.org/2004/07/ChemHazardCalculator" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <AgentName>Trumpathion</AgentName>
+    <CalculatedPattern xmlns:a="http://schemas.datacontract.org/2004/07/AdvancedATP45.ChemHazard">
+        <a:AgentName>Trumpathion</a:AgentName>
+        <a:Patterns>
+            <a:DosageField>
+            ...
+            </a:DosageField>
+            <a:DosageField>
+            ...
+            </a:DosageField>
+            <a:DosageField>
+            ...
+            </a:DosageField>
+        </a:Patterns>
+        <a:Psc>Stable</a:Psc>
+        <a:Qkg>10</a:Qkg>
+        <a:Tolerance>0.02</a:Tolerance>
+        <a:Tst>Land</a:Tst>
+        <a:UKts>3</a:UKts>
+        <a:WeaponName>Dumpster Fire</a:WeaponName>
+    </CalculatedPattern>
+    <ICT50Dosage>50</ICT50Dosage>
+    <LCT50Dosage>500</LCT50Dosage>
+    <Psc>Stable</Psc>
+    <Qkg>10</Qkg>
+    <ThresholdDosage>10</ThresholdDosage>
+    <Tst>Land</Tst>
+    <UKts>3</UKts>
+    <WeaponName>Dumpster Fire</WeaponName>
+</ChemHazardViewModel>
+```
+Each DosageField element contains an AreaCoverageSquareMeters node, follwed by 30 dosage value nodes and the other values, like this:
+```xml
+<a:DosageField>
+    <a:AreaCovergeSquareMeters>149920.0375</a:AreaCovergeSquareMeters>
+    <a:DosageValues>
+        <a:DosageValue>
+            <a:Dosage>10.006017767862227</a:Dosage>
+            <a:XMeters>24.133333333333333</a:XMeters>
+            <a:YMeters>45.640625</a:YMeters>
+        </a:DosageValue>
+        <a:DosageValue>
+            <a:Dosage>9.98914440171314</a:Dosage>
+            <a:XMeters>48.266666666666666</a:XMeters>
+            <a:YMeters>65.125</a:YMeters>
+        </a:DosageValue>
+    ...
+    </a:DosageValues>
+    <a:MaxCrosswindDistance>133.25</a:MaxCrosswindDistance>
+    <a:MaxDownwindDistance>724</a:MaxDownwindDistance>
+    <a:Threshold>10</a:Threshold>
+</a:DosageField>
+```
+This sample file is included in the Documents folder of this repository.
+
+A future version of the [ATP45 Nuclear Fallout Calculator](https://www.atp45.com) will contain plotting from chemical munitions using this software.  
+
+Note that the YMeters distance of each dosage value represents only one side of the cloud from along centerline, you must plot both sides for a correct visual representation.
+
+You can also load this XML file from the File|Open menu, change parameters as desired, and press Calculate again for a different result, which you then may save again, and so forth.
+
+## Area Coverage Methodology
+The implemented ATP45 Dosage algorithm finds the total dosage at X and Y coordinates in meters from a release of Q kilograms of agent at a windspeed of U knots, with a Target Surface Type of Land or Sea, and Atmospheric Stablity defined in the Pasquill Stability Category.
+
+This is the root of what we need to calculate the area covered by a release to a particular level of toxicity.
+
+First, we find the total X distance downwind of the release for the dosage of interest using [numerical bisection](http://www.numericmethod.com/About-numerical-methods/roots-of-equations/bisection-method) to a particular tolerance level (.02 mg-min/m^3).  We then divide this distance by 30 and proceed downwind from the release point at each slice distance to calculate the maximum crosswind distance at each point X, also using numerical bisection to the tolerance.
+
+It is then a simple matter to add the areas of the slice rectangles times 2 (one for each side of the cloud) to get an accurate approximation of the area coverage of the release, and to save the wind coordinates of each slice for eventual plotting.
+
+If you wish to plot these coordinates on a map, remember that they are in *wind coordinates* that must be [rotated](https://en.wikipedia.org/wiki/Rotation_of_axes) to the wind direction in whatever coordinate system your map uses.
+
