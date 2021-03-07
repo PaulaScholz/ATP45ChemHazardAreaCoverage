@@ -169,6 +169,9 @@ If you wish to build the calculator from the project files, you will need Micros
 ## About the Author
 The author is a former Chemical Corps officer of the United States Army and was assigned as an Operations Research Officer in the Concepts & Studies Division, Combat Developments Directorate, United States Army Chemical School. She was a full-time software engineer at Microsoft in the Core Operating Systems Division (Windows). She now writes software in the Seattle area.
 
+## Privacy Policy
+No personally identifiable information is collected, transmitted or stored by this application.
+
 ## License
   
 Copyright (c) 2021 by Paula Scholz. All rights reserved.
