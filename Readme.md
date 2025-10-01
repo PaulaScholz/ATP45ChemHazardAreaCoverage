@@ -34,7 +34,7 @@ Typical dosage levels of interest are:
 
  Really, these levels can represent whatever your criteria of interest happen to be, with the limitation that the Threshold dose be less than ICT50, which must be less than LCT50, and all must be greater than zero.
 
-Toxicity levels for this application are measured in mg-min/m^3, but in the case of many industrial chemicals, toxicity levels of interest are only available in Parts Per Million form (PPM).  The National Institute for Occupational Safety and Health has built a [conversion calculator](https://www.cdc.gov/niosh/docs/2004-101/calc.html) to convert PPM measurements to mg-min/m^3 and vise-versa. 
+Toxicity levels for this application are measured in mg-min/m^3, but in the case of many industrial chemicals, toxicity levels of interest are only available in Parts Per Million form (PPM).  Here is a  [conversion calculator](https://calculator-online.net/ppm-calculator/) to convert PPM measurements to mg-min/m^3 and vise-versa. 
 
 ## Model Results
 
