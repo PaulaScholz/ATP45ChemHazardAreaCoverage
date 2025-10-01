@@ -141,7 +141,7 @@ The implemented ATP45 Dosage algorithm finds the total dosage at X and Y coordin
 
 This is the root of what we need to calculate the area covered by a release to a particular level of toxicity.
 
-First, we find the total X distance downwind of the release for the dosage of interest using [numerical bisection](http://www.numericmethod.com/About-numerical-methods/roots-of-equations/bisection-method) to a particular tolerance level (.02 mg-min/m^3).  We then divide this distance by 30 and proceed downwind from the release point at each slice distance to calculate the maximum crosswind distance at each point X, also using numerical bisection, to the tolerance.
+First, we find the total X distance downwind of the release for the dosage of interest using [numerical bisection](https://en.wikipedia.org/wiki/Bisection_method) to a particular tolerance level (.02 mg-min/m^3).  We then divide this distance by 30 and proceed downwind from the release point at each slice distance to calculate the maximum crosswind distance at each point X, also using numerical bisection, to the tolerance.
 
 It is then a simple matter to add the areas of the slice rectangles times 2 (one for each side of the cloud) to get an accurate approximation of the area coverage of the release, and to save the wind coordinates of each slice for eventual plotting.
 
