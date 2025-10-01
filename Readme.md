@@ -130,8 +130,6 @@ Each DosageField element contains an AreaCoverageSquareMeters node, follwed by 3
 ```
 This sample file is included in the Documents folder of this repository.
 
-A future version of the [ATP45 Nuclear Fallout Calculator](https://www.atp45.com) will contain plotting from chemical munitions using this software.  
-
 Note that the YMeters distance of each dosage value represents only one side of the cloud from along centerline, you must plot both sides for a correct visual representation.
 
 You can also load this XML file from the File|Open menu, change parameters as desired, and press Calculate again for a different result, which you then may save again, and so forth.
